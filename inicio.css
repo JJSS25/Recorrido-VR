@@ -1,0 +1,38 @@
+body{
+  margin:0;
+  height:100vh;
+
+  background-image: url("images/edificio.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  font-family: sans-serif;
+}
+
+/* capa oscura para que se vea mejor el texto */
+.overlay{
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.5);
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  color:white;
+}
+
+button{
+  padding:12px 25px;
+  font-size:18px;
+  border:none;
+  border-radius:8px;
+  background:#00A8A8;
+  color:white;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#007777;
+}
