@@ -133,7 +133,7 @@ clickEscena(rombo,destino);
 hotspots.appendChild(rombo);
 }
 
-/* 🔴 BOTÓN SALIR */
+/* BOTÓN SALIR */
 function crearSalir(){
 
 const boton = document.createElement('a-circle');
@@ -197,7 +197,7 @@ if(h.tipo==="aula") crearAula(h.destino,h.posicion,h.icono,h.tamIcono);
 if(h.tipo==="pasillo") crearPasillo(h.destino,h.posicion);
 });
 
-/* 🔴 SIEMPRE AGREGAR SALIR */
+/* SIEMPRE AGREGAR SALIR */
 crearSalir();
 }
 
