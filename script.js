@@ -9,41 +9,74 @@ const colorHover = "#EDE5D6";
 /* ESCENAS */
 const escenas = {
 
-pasillo1:[
+pasillo1:{
+hotspots:[
 {tipo:"aula", destino:"aula1", posicion:"-3 1.5 -4", icono:"#icon3D"},
 {tipo:"aula", destino:"aula2", posicion:"3 1.5 -4", icono:"#iconRobo"},
 {tipo:"pasillo", destino:"pasillo2", posicion:"0 1.2 -5"}
-],
+]
+},
 
-pasillo2:[
+pasillo2:{
+hotspots:[
 {tipo:"aula", destino:"aula3", posicion:"-3 1.5 -4", icono:"#iconSMT"},
 {tipo:"aula", destino:"aula4", posicion:"0 1.5 -4", icono:"#iconManu", tamIcono:0.9},
 {tipo:"aula", destino:"aula5", posicion:"3 1.5 -4", icono:"#iconRoco", tamIcono:0.9},
-
 {tipo:"pasillo", destino:"pasillo1", posicion:"0 1.2 5"}
-],
+]
+},
 
-aula1:[
+aula1:{
+nombre:"Sala 3D",
+hotspots:[
 {tipo:"pasillo", destino:"pasillo1", posicion:"0 1.6 -3"}
-],
+]
+},
 
-aula2:[
+aula2:{
+nombre:"Laboratorio de Robótica Movil",
+hotspots:[
 {tipo:"pasillo", destino:"pasillo1", posicion:"0 1.6 -3"}
-],
+]
+},
 
-aula3:[
-{tipo:"pasillo", destino:"pasillo2", posicion:"0 1.6 -3"}
-],
-
-aula4:[
-{tipo:"pasillo", destino:"pasillo2", posicion:"0 1.6 -3"}
-],
-
-aula5:[
+aula3:{
+nombre:"Laboratorio SMT",
+hotspots:[
 {tipo:"pasillo", destino:"pasillo2", posicion:"0 1.6 -3"}
 ]
+},
+
+aula4:{
+nombre:"Laboratorio de Manufactura",
+hotspots:[
+{tipo:"pasillo", destino:"pasillo2", posicion:"0 1.6 -3"}
+]
+},
+
+aula5:{
+nombre:"Laboratorio de Robotica Colaborativa",
+hotspots:[
+{tipo:"pasillo", destino:"pasillo2", posicion:"0 1.6 -3"}
+]
+}
 
 };
+
+/* TEXTO */
+function crearTexto(nombre){
+
+const texto = document.createElement('a-text');
+
+texto.setAttribute('value', nombre);
+texto.setAttribute('align', 'center');
+texto.setAttribute('color', '#FFFFFF');
+texto.setAttribute('position', '0 2 -3');
+texto.setAttribute('scale', '2 2 2');
+texto.setAttribute('look-at','[camera]');
+
+hotspots.appendChild(texto);
+}
 
 /* SONIDO */
 function reproducirSonido(){
@@ -163,6 +196,8 @@ hotspots.appendChild(boton);
 /* CAMBIAR ESCENA */
 function cambiarEscena(destino){
 
+if(!escenas[destino]) return;
+
 sky.setAttribute('animation__fadeout',{
 property:'material.opacity',
 to:0,
@@ -189,15 +224,20 @@ actualizarHotspots(destino);
 /* ACTUALIZAR HOTSPOTS */
 function actualizarHotspots(escena){
 
-const lista = escenas[escena];
-if(!lista) return;
+const data = escenas[escena];
+if(!data) return;
 
-lista.forEach(h=>{
+/* SOLO CREAR TEXTO SI EXISTE */
+if(data.nombre){
+crearTexto(data.nombre);
+}
+
+data.hotspots.forEach(h=>{
 if(h.tipo==="aula") crearAula(h.destino,h.posicion,h.icono,h.tamIcono);
 if(h.tipo==="pasillo") crearPasillo(h.destino,h.posicion);
 });
 
-/* SIEMPRE AGREGAR SALIR */
+/* SALIR */
 crearSalir();
 }
 
