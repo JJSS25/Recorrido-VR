@@ -96,7 +96,6 @@ cambiarEscena(destino);
 });
 }
 
-/* 🔥 ANIMACIÓN FLOTANTE */
 function animarFlotante(elemento, posicion){
 
 const [x,y,z] = posicion.split(" ").map(Number);
@@ -170,7 +169,6 @@ rombo.setAttribute('class','clickable');
 rombo.setAttribute('position',posicion);
 rombo.setAttribute('look-at','[camera]');
 
-/* 🔥 animación flotante */
 animarFlotante(rombo, posicion);
 
 rombo.addEventListener('mouseenter',()=>{
