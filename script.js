@@ -70,7 +70,7 @@ cambiarEscena(destino);
 });
 }
 
-/* ANIMACIÓN FLOTANTE */
+/* ANIMACION FLOTANTE */
 function animarFlotante(elemento, posicion){
 const [x,y,z] = posicion.split(" ").map(Number);
 
@@ -170,7 +170,7 @@ clickEscena(rombo,destino);
 hotspots.appendChild(rombo);
 }
 
-/* BOTÓN SALIR */
+/* BOTON SALIR */
 function crearSalir(){
 
 const boton = document.createElement('a-circle');
