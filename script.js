@@ -230,8 +230,6 @@ function actualizarHotspots(escena){
 const data = escenas[escena];
 if(!data) return;
 
-/* ❌ eliminado texto fijo */
-
 data.hotspots.forEach(h=>{
 if(h.tipo==="aula") crearAula(h.destino,h.posicion,h.icono,h.tamIcono);
 if(h.tipo==="pasillo") crearPasillo(h.destino,h.posicion);
