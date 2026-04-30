@@ -23,15 +23,22 @@ body{
 }
 
 button{
-  padding:12px 25px;
+  padding:14px 32px;
   font-size:18px;
   border:none;
-  border-radius:8px;
-  background:#00A8A8;
+  border-radius:30px;
+  background: linear-gradient(135deg, #00A8A8, #007777);
   color:white;
   cursor:pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
 button:hover{
-  background:#007777;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+}
+
+button:active{
+  transform: scale(0.97);
 }
